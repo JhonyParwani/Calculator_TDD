@@ -1,4 +1,4 @@
-name: CI for automating tests
+name: CI/CD for Automating Tests and Deployment on gh pages
 
 on:
   push:
@@ -31,3 +31,30 @@ jobs:
 
       - name: Run tests
         run: npm test -- --watchAll=false
+
+      - name: Build project
+        run: npm run build  
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          name: app-build
+          path: ./build  
+
+  deploy:
+    needs: build
+    permissions:
+      id-token: write
+      pages: write
+      contents: write  
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        with:
+          artifact_name: "app-build"
