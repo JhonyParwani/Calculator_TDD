@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('Calculator', () => {
+  test('adds two numbers', () => {
+    render(<App />);
+    fireEvent.change(screen.getByPlaceholderText(/enter two numbers/i), {
+      target: { value: '2,3' },
+    });
+    fireEvent.click(screen.getByText(/add/i));
+    expect(screen.getByText(/result/i)).toHaveTextContent('Result: 5');
+  });
+
+})
