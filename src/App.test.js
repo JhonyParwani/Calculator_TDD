@@ -10,8 +10,7 @@ describe('Calculator', () => {
     fireEvent.click(screen.getByText(/add/i));
     expect(screen.getByText(/result/i)).toHaveTextContent('Result: 5');
   });
-
-})
+});
 test('subtracts two numbers', () => {
   render(<App />);
   fireEvent.change(screen.getByPlaceholderText(/enter two numbers/i), {
