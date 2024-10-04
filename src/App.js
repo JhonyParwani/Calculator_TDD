@@ -18,6 +18,9 @@ const App = () => {
       case 'subtract':
         res = num1 - num2;
         break;
+      case 'multiply':
+        res = num1 * num2;
+        break;
       default:
         return;
     }
@@ -30,6 +33,7 @@ const App = () => {
       <input type="text" value={input} onChange={handleInputChange} placeholder="Enter two numbers separated by a comma" />
       <button onClick={() => calculate('add')}>Add</button>
       <button onClick={() => calculate('subtract')}>Subtract</button>
+      <button onClick={() => calculate('multiply')}>Multiply</button>
       <div>Result: {result !== null ? result : 'N/A'}</div>
     </div>
   );
