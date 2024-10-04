@@ -20,3 +20,12 @@ test('subtracts two numbers', () => {
   fireEvent.click(screen.getByText(/subtract/i));
   expect(screen.getByText(/result/i)).toHaveTextContent('Result: 2');
 });
+
+test('multiplies two numbers', () => {
+  render(<App />);
+  fireEvent.change(screen.getByPlaceholderText(/enter two numbers/i), {
+    target: { value: '4,5' },
+  });
+  fireEvent.click(screen.getByText(/multiply/i));
+  expect(screen.getByText(/result/i)).toHaveTextContent('Result: 20');
+});
