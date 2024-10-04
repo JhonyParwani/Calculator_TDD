@@ -10,23 +10,13 @@ const App = () => {
 
   const calculate = (operation) => {
     const [num1, num2] = input.split(',').map(Number);
-    let res;
-    switch (operation) {
-      case 'add':
-        res = num1 + num2;
-        break;
-      case 'subtract':
-        res = num1 - num2;
-        break;
-      case 'multiply':
-        res = num1 * num2;
-        break;
-      default:
-        return;
-    }
-    setResult(res);
+    const operations = {
+      add: (a, b) => a + b,
+      subtract: (a, b) => a - b,
+      multiply: (a, b) => a * b,
+    };
+    setResult(operations[operation](num1, num2));
   };
-
   return (
     <div>
       <h1>Simple Calculator</h1>
