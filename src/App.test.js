@@ -12,3 +12,11 @@ describe('Calculator', () => {
   });
 
 })
+test('subtracts two numbers', () => {
+  render(<App />);
+  fireEvent.change(screen.getByPlaceholderText(/enter two numbers/i), {
+    target: { value: '5,3' },
+  });
+  fireEvent.click(screen.getByText(/subtract/i));
+  expect(screen.getByText(/result/i)).toHaveTextContent('Result: 2');
+});
