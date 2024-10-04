@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [input, setInput] = useState('');
+  const [result, setResult] = useState(null);
+
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+  };
+
+  const calculate = (operation) => {
+    const [num1, num2] = input.split(',').map(Number);
+    let res;
+    switch (operation) {
+      case 'add':
+        res = num1 + num2;
+        break;
+      default:
+        return;
+    }
+    setResult(res);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Simple Calculator</h1>
+      <input type="text" value={input} onChange={handleInputChange} placeholder="Enter two numbers separated by a comma" />
+      <button onClick={() => calculate('add')}>Add</button>
+      <div>Result: {result !== null ? result : 'N/A'}</div>
     </div>
   );
-}
+};
 
 export default App;
