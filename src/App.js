@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css';
 
 const App = () => {
   const [input, setInput] = useState('');
@@ -41,8 +42,14 @@ const App = () => {
     setInput(''); // Clear the input box after successful calculation
   };
 
+  const resetCalculator = () => {
+    setInput('');
+    setResult(null);
+    setError('');
+  };
+
   return (
-    <div>
+    <div className="calculator-container">
       <h1>Simple Calculator</h1>
       <input
         type="text"
@@ -50,12 +57,14 @@ const App = () => {
         onChange={handleInputChange}
         placeholder="Enter two numbers separated by a comma"
       />
-      <button onClick={() => calculate('add')}>Add</button>
-      <button onClick={() => calculate('subtract')}>Subtract</button>
-      <button onClick={() => calculate('multiply')}>Multiply</button>
-      {error && <div style={{ color: 'red' }}>{error}</div>}{' '}
-      {/* Display error if any */}
-      <div>Result: {result !== null ? result : 'N/A'}</div>
+      <div className="button-container">
+        <button onClick={() => calculate('add')}>Add</button>
+        <button onClick={() => calculate('subtract')}>Subtract</button>
+        <button onClick={() => calculate('multiply')}>Multiply</button>
+      </div>
+      {error && <div className="error">{error}</div>}
+      <div className="result">Result: {result !== null ? result : 'N/A'}</div>
+      <button onClick={resetCalculator}>Reset</button>
     </div>
   );
 };
