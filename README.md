@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Simple Calculator Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple calculator application built with React. It allows users to perform basic arithmetic operations (addition, subtraction, multiplication) on two numbers provided as input. The application has automated tests and CI/CD processes to ensure code quality and facilitate deployment on GitHub Pages.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Testing](#testing)
+- [CI/CD Pipeline](#cicd-pipeline)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Perform basic arithmetic operations:
+  - Addition
+  - Subtraction
+  - Multiplication
+- User-friendly input handling with error validation
+- Automated tests to ensure functionality
+- CI/CD for automated testing and deployment
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/JhonyParwani/Calculator_TDD.git
+   
+3. Install the dependencies:
+    npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
+1. Start the application:
+    npm start
+   
+2. Open your browser and go to http://localhost:3000 to use the calculator.
+   
+4. Enter two numbers separated by a comma in the input field and click the desired operation button (Add, Subtract, Multiply).
 
-### `npm run build`
+## Testing
+1. To run the tests, use the following command:
+   
+   npm test
+   
+## CI/CD Pipeline
+This project utilizes GitHub Actions for Continuous Integration and Continuous Deployment. The workflow is defined in the .github/workflows/main.yml file and includes the following steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Triggering Events: The pipeline runs on pushes and pull requests to the main branch.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Jobs:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    - Build:
+      - Check out the code.
+      - Set up Node.js.
+      - Install dependencies.
+      - Run tests.
+      - Build the project.
+      - Upload the build artifact.
+    - Deploy:
+      - Deploys the application to GitHub Pages after a successful build.
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Contributions are welcome! Please submit a pull request or open an issue for suggestions or improvements.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
